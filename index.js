@@ -5,6 +5,6 @@ app.use(express.json());
 
 
 
-app.listen(posr, () => {
+app.listen(port, () => {
     console.log (`Server started on port:` + port)
 });
