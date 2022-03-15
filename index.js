@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+const Joi = require("joi");
 
 // MMiddleware
 app.use(express.json());
 
 //Router
 
-const hostelRouter = ("./router/hostelRouter.js")
-const restaurantRouter = ("./router/restaurantRouter.js")
+const hostelRouter = require("./Router/hostelRouter.js")
+const restaurantRouter = require("./Router/restaurantRouter.js")
 
 app.use('/hostel', hostelRouter );
 app.use('/restaurant', restaurantRouter);
