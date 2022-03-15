@@ -1,19 +1,19 @@
-const express =require('express');
-const { rmSync } = require('fs');
+const express = require('express');
 const app = express();
-const Joi = require("Joi")
 const port = 8000;
-const router = express.Router();
 
-//Router
-const userRouter = require("./Router/userRouter.js")
 // MMiddleware
 app.use(express.json());
-// app.use("/Router/hostelRouter.js");
-// app.use("Router/restaurantRouter.js");
-//Data
-const hostel = ("./data/hostel.json")
-const restaurant = ("./data/restaurant.json")
+
+//Router
+
+const hostelRouter = ("./router/hostelRouter.js")
+const restaurantRouter = ("./router/restaurantRouter.js")
+
+app.use('/hostel', hostelRouter );
+app.use('/restaurant', restaurantRouter);
+
+
 
 const schemaHostel = Joi.object({
     name : Joi.string().min(5).required,
